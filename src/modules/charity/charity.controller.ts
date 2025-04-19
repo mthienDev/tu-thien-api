@@ -8,12 +8,12 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { Charity } from 'src/charity/charity.entity';
-import { CharityService } from 'src/charity/charity.service';
-import { CreateCharityDto } from 'src/charity/dto/create-charity.dto';
-import { UpdateCharityDto } from 'src/charity/dto/update-charity.dto';
+import { Charity } from '@/modules/charity/charity.entity';
+import { CharityService } from '@/modules/charity/charity.service';
+import { CreateCharityDto } from '@/modules/charity/dto/create-charity.dto';
+import { UpdateCharityDto } from '@/modules/charity/dto/update-charity.dto';
 
-@ApiTags('charities')
+@ApiTags('charities') // Thêm tag cho controller
 @Controller('charity')
 export class CharityController {
   constructor(private readonly charityService: CharityService) {}
@@ -21,6 +21,7 @@ export class CharityController {
   @Get()
   @ApiOperation({ summary: 'Lấy danh sách tất cả chương trình' })
   findAll(): Promise<Charity[]> {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return this.charityService.findAll();
   }
 

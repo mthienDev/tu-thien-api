@@ -6,6 +6,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.setGlobalPrefix('api');
   // Swagger config
   const config = new DocumentBuilder()
     .setTitle('Từ Tâm API')
@@ -15,7 +16,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document); // Truy cập tại /api
+  SwaggerModule.setup('api/docs', app, document);
 
   // Validation pipe toàn cục
   app.useGlobalPipes(
@@ -28,6 +29,8 @@ async function bootstrap() {
   const port = process.env.PORT ?? 3000;
   await app.listen(port);
   console.log(`🚀 Server is running at: http://localhost:${port}`);
-  console.log(`📘 Swagger docs available at: http://localhost:${port}/api`);
+  console.log(
+    `📘 Swagger docs available at: http://localhost:${port}/api/docs`,
+  );
 }
 void bootstrap();

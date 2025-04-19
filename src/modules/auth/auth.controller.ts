@@ -1,7 +1,7 @@
-import { SignupAuthDto } from '@/auth/dto/signup-auth.dto';
+import { SignupAuthDto } from '@/modules/auth/dto/signup-auth.dto';
 import { AuthService } from './auth.service';
 import { Body, Controller, Post } from '@nestjs/common';
-import { LoginAuthDto } from '@/auth/dto/login-auth.dto';
+import { LoginAuthDto } from '@/modules/auth/dto/login-auth.dto';
 import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('auth')
