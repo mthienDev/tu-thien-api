@@ -21,7 +21,6 @@ export class CharityController {
   @Get()
   @ApiOperation({ summary: 'Lấy danh sách tất cả chương trình' })
   findAll(): Promise<Charity[]> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return this.charityService.findAll();
   }
 

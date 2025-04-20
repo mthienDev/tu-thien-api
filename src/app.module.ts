@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { CharityModule } from '@/modules/charity/charity.module';
 import { AuthModule } from '@/modules/auth/auth.module';
 import { UserModule } from '@/modules/user/user.module';
+import { DonationModule } from '@/modules/donation/donation.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { UserModule } from '@/modules/user/user.module';
     CharityModule,
     AuthModule,
     UserModule,
+    DonationModule,
   ],
 })
 export class AppModule {}
